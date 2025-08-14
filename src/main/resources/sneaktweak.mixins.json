@@ -6,7 +6,7 @@
   "client": [
     "CameraMixin",
     "ClientPlayNetworkHandlerMixin",
-    "ClientPlayerEntityMixin"
+    "PlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

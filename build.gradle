@@ -10,7 +10,15 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+loom {
+    accessWidenerPath = file("src/main/resources/sneaktweak.accesswidener")
+}
+
 repositories {
+    maven {
+        url "https://maven.isxander.dev/releases"
+        name "Xander Maven"
+    }
     maven {
         url "https://oss.sonatype.org/content/repositories/snapshots"
     }
@@ -37,7 +45,7 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:$loader_version")
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:$fabric_version"
-    modImplementation("com.github.Lortseam.completeconfig:gui-yacl:$completeconfig_version")
+    modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
     modImplementation("com.terraformersmc:modmenu:$modmenu_version")
 }
 
@@ -55,7 +63,7 @@ tasks.withType(JavaCompile).configureEach {
     // see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
     it.options.encoding = "UTF-8"
 
-    it.options.release = 17
+    it.options.release = 21
 }
 
 jar {
